@@ -27,15 +27,15 @@ interests:
 
 education:
   courses:
-  - course: PhD in Artificial Intelligence
-    institution: Stanford University
-    year: 2012
-  - course: MEng in Artificial Intelligence
-    institution: Massachusetts Institute of Technology
+  - course: PhD, Sociology
+    institution: University of North Carolina at Chapel Hill
+    year: 2020
+  - course: Master's, Sociology
+    institution: University of North Carolina at Chapel Hill
+    year: 2015
+  - course: Bachelor's, Sociology/Anthropology
+    institution: Warren Wilson College
     year: 2009
-  - course: BSc in Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    year: 2008
 
 # Social/Academic Networking
 # For available icons, see: https://sourcethemes.com/academic/docs/widgets/#icons
@@ -58,7 +58,7 @@ social:
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.  
 - icon: cv
   icon_pack: ai
-   link: https://google.com
+   link: static/files/CV_David_Rigby_7_19.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email: ""
