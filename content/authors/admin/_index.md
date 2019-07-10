@@ -58,7 +58,7 @@ social:
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.  
 - icon: cv
   icon_pack: ai
-   link: https://github.com/drigb/soc_website/static/files/CV_David_Rigby_7_19.pdf
+   link: google.com
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email: ""
