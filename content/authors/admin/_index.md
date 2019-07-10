@@ -21,9 +21,12 @@ organizations:
 bio: My research interests include distributed robotics, mobile computing and programmable matter.
 
 interests:
-- Artificial Intelligence
-- Computational Linguistics
-- Information Retrieval
+ - Political Sociology
+ - Immigration
+ - Race and Ethnicity
+ - Social Movements
+ - Collective Violence
+ - Crime and Policing
 
 education:
   courses:
