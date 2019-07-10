@@ -24,6 +24,7 @@ interests:
  - Political Sociology
  - Immigration
  - Race and Ethnicity
+ - Computational Social Science
  - Social Movements
  - Collective Violence
  - Crime and Policing
