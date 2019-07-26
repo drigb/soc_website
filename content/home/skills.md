@@ -18,13 +18,13 @@ subtitle = ""
   icon = "r-project"
   icon_pack = "fab"
   name = "R"
-  description = "90%"
+  description = "Data Collection, Analysis, Visualization, and Mapping"
   
 [[feature]]
   icon = "python"
   icon_pack = "fab"
   name = "Python"
-  description = "100%"  
+  description = "Data Collection and Analysis"  
   
 # [[feature]]
   # icon = "camera-retro"
