@@ -21,15 +21,15 @@ subtitle = ""
   description = "90%"
   
 [[feature]]
-  icon = "chart-line"
+  icon = "python"
   icon_pack = "fas"
-  name = "Statistics"
+  name = "Python"
   description = "100%"  
   
-[[feature]]
-  icon = "camera-retro"
-  icon_pack = "fas"
-  name = "Photography"
-  description = "10%"
+# [[feature]]
+  # icon = "camera-retro"
+  # icon_pack = "fas"
+  # name = "Photography"
+  # description = "10%"
 
 +++
