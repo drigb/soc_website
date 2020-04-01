@@ -9,6 +9,7 @@ weight = 60  # Order that this section will appear.
 
 title = "Lessons, Code, Maps"
 subtitle = ""
+url = "content/post/test/test_covid_slider.Rmd"
 
 [content]
   # Page type to display. E.g. post, talk, or publication.
