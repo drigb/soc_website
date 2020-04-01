@@ -50,7 +50,7 @@ Cumulative Cases, by County {data-orientation=rows}
 
 ```{r}
 ## Fips and state abbreviation, for merge
-fips_path <-'/Users/David2014/Dropbox/akram_demo/nation_county_fips.csv'
+fips_path <-'content/post/test/nation_county_fips.csv'
 fips <- read.csv(fips_path)
 
 fips$state_fips <- sprintf("%02s", as.character(fips$state_fips))
@@ -59,7 +59,7 @@ fips$GEOID <- (as.numeric(fips$state_fips )*1000)+as.numeric(fips$county_fips)
 fips$GEOID <- sprintf("%05s", as.character(fips$GEOID))
 fips <- fips[c('state','county','GEOID')]
 
-covid_path <- '/Users/David2014/Dropbox/akram_demo/us-counties.csv'
+covid_path <- 'content/post/test/us-counties.csv'
 covid_county <- read.csv(covid_path)
 covid_county$GEOID <- sprintf("%05s", as.character(covid_county$fips))
 
