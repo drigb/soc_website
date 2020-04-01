@@ -1,0 +1,220 @@
+---
+title: "COVID-19 in the US"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: scroll
+    theme: united
+---
+
+<style>
+.colored {
+  background-color: #e4e2d8;
+}
+</style>
+
+
+```{r setup, include=FALSE}
+#installed.packages("tigris")
+library(tidyverse)
+library(crosstalk)
+library(flexdashboard)
+library(plotly)
+#library(summarywidget)
+library(DT)
+library(leaflet)
+library(numform)
+library(USAboundaries)
+library(gridExtra)
+library(ggmap)
+library(knitr)
+library(tigris)
+library(devtools)
+library(rappdirs)
+library(leaflet)
+library(htmlwidgets)
+library(shiny)
+library(sp)
+library(rsconnect)
+library(dplyr)
+library(rgeos)
+library(maptools)
+library(kader)
+library(mapview)
+library(magick)
+```
+
+
+Cumulative Cases, by County {data-orientation=rows}
+===========================================================
+
+```{r}
+## Fips and state abbreviation, for merge
+fips_path <-'/Users/David2014/Dropbox/akram_demo/nation_county_fips.csv'
+fips <- read.csv(fips_path)
+
+fips$state_fips <- sprintf("%02s", as.character(fips$state_fips))
+fips$county_fips <- sprintf("%03s", as.character(fips$county_fips))
+fips$GEOID <- (as.numeric(fips$state_fips )*1000)+as.numeric(fips$county_fips)
+fips$GEOID <- sprintf("%05s", as.character(fips$GEOID))
+fips <- fips[c('state','county','GEOID')]
+
+covid_path <- '/Users/David2014/Dropbox/akram_demo/us-counties.csv'
+covid_county <- read.csv(covid_path)
+covid_county$GEOID <- sprintf("%05s", as.character(covid_county$fips))
+
+covid_county$date <- as.Date(covid_county$date)
+
+
+plotly_table <- covid_county
+
+covid_county <- left_join(fips, covid_county, by = "GEOID", copy = FALSE)
+
+covid_county<- rename(covid_county, 
+                             State_Name = state.x,
+                             County_Name = county.x,
+                             Date = date,
+                             Case_Total = cases,
+                             Deaths = deaths) %>%
+  select(GEOID, State_Name, County_Name, Date, Case_Total, Deaths)
+
+invisible(capture.output(us_county_shape <- counties(, cb = TRUE, year = NULL)))
+
+
+cds <- coordinates(us_county_shape)
+dot_coords <- cbind(as.data.frame(cds) %>% setNames(c("long","lat")),us_county_shape@data['GEOID'])
+county_merge <- sp::merge(us_county_shape,dot_coords, by = "GEOID")
+dot_merged <- sp::merge(county_merge, covid_county, by = "GEOID", duplicateGeoms = TRUE)
+invisible(capture.output(us_county_small <- us_county_shape))
+invisible(capture.output(us_county_small@data <- us_county_small@data[1]))
+dot_merged@data$cases[is.na(dot_merged@data$Case_Total)] <- 0
+covid <- dot_merged@data
+
+covid$colorcode <- 0
+covid$colorcode[covid$Case_Total > 0] <- 1
+
+color_casecount <- c('0' = 'white', '1' = 'purple')
+
+covid$colors <- color_casecount[as.character(covid$colorcode)]
+
+
+covid <- covid %>% select(State_Name, County_Name, Date, Case_Total, Deaths, long, lat, colors)
+covid_share <- SharedData$new(covid)
+
+
+popup <- paste0(covid_share$data()$County_Name, ", ",covid_share$data()$State_Name, 
+                ":</br>  Confirmed Cases = <B>", covid_share$data()$Case_Total,"</br></B>", 
+                "Deaths = <B>", covid_share$data()$Deaths)
+
+share_dot_map <- covid_share %>%
+  leaflet() %>%
+  addProviderTiles("CartoDB.Positron") %>%
+  
+  addPolylines(data =us_county_shape,                  
+               stroke = TRUE,
+               weight = .5,
+               color="grey") %>%
+  
+  addCircleMarkers(lng = covid_share$data()$long, lat = covid_share$data()$lat, 
+                   radius = ~ sqrt(Case_Total), weight=5, opacity = .1,
+                   color=covid_share$data()$colors, stroke = TRUE, fillOpacity = .2, popup = popup) %>%
+  
+  addLegend("topright", colors = "white", labels = "",
+            title = "<B> Counts as of: 3-27-2020"
+  )
+
+centered_dot <- setView(share_dot_map, lat = 39, lng = -97, zoom = 5)
+```
+
+
+```{r}
+  nyc <-           subset(plotly_table, county=='New York City')
+  westchesterNY <- subset(plotly_table, county=='Westchester' & state=='New York')
+  nassauNY <-      subset(plotly_table, county=='Nassau' & state=='New York')
+  suffolkNY <-     subset(plotly_table, county=='Suffolk' & state=='New York')
+  cookIL <-        subset(plotly_table, county=='Cook' & state=='Illinois')
+  kingWA <-        subset(plotly_table, county=='King' & state=='Washington')
+  wayneMI <-       subset(plotly_table, county=='Wayne' & state=='Michigan')
+  snowhomishWA <-  subset(plotly_table, county=='Snohomish' & state=='Washington')
+  bergenNJ <-      subset(plotly_table, county=='Bergen' & state=='New Jersey')
+  losangeles<-     subset(plotly_table, county=='Los Angeles' & state=='California')
+  rocklandNY <-    subset(plotly_table, county=='Rockland' & state=='New York')
+  orleansLA <-     subset(plotly_table, county=='Orleans' & state=='Louisiana')
+  orangeNY <-      subset(plotly_table, county=='Orange' & state=='New York')
+  miamidadeFLA <-  subset(plotly_table, county=='Miami-Dade' & state=='Florida')
+  essexNJ <-       subset(plotly_table, county=='Essex' & state=='New Jersey')
+  
+  p = ggplot() + 
+    geom_line(data = nyc, aes(x = date, y = cases, text = paste(county,", ",state)),color = "blue") +
+    geom_line(data = westchesterNY, aes(x = date, y = cases, text = paste(county,", ",state)),color = "red") +
+    geom_line(data = nassauNY, aes(x = date, y = cases, text = paste(county,", ",state)),color = "#1e3f9d") +
+    geom_line(data = suffolkNY, aes(x = date, y = cases, text = paste(county,", ",state)),color = "#D4820F") +
+    geom_line(data = cookIL, aes(x = date, y = cases, text = paste(county,", ",state)),color = "#8d371b") +
+    geom_line(data = kingWA, aes(x = date, y = cases, text = paste(county,", ",state)),color = "#5134a6") +
+    geom_line(data = wayneMI, aes(x = date, y = cases, text = paste(county,", ",state)),color="#146c2a") +
+    geom_line(data = snowhomishWA, aes(x = date, y = cases, text = paste(county,", ",state)),color="#1e9d7e") +
+    geom_line(data = bergenNJ, aes(x = date, y = cases, text = paste(county,", ",state)),color = "grey") +
+    geom_line(data = losangeles, aes(x = date, y = cases, text = paste(county,", ",state)),color="firebrick") +
+    geom_line(data = rocklandNY, aes(x = date, y = cases, text=paste(county,", ",state)),color="dodgerblue") +
+    geom_line(data = orleansLA, aes(x = date, y = cases, text = paste(county,", ",state)),color = "purple") +
+    geom_line(data = orangeNY, aes(x = date, y = cases, text = paste(county,", ",state)),color = "yellow") +
+    geom_line(data = miamidadeFLA, aes(x = date, y = cases, text=paste(county,", ",state)),color="darkblue") +
+    geom_line(data = essexNJ, aes(x = date, y = cases, text = paste(county,", ",state)),color = "green") +
+    xlab('Dates') +
+    ylab('Total Confirmed Cases') +
+    scale_color_discrete(name = "Counties", labels = c("New York, NY", "Westchester, NY",
+                                                       "Nassau, NY", "Suffolk, NY",
+                                                       "Cook, IL", "King, WA",
+                                                       "Wayne, MI", "Snohomish, WA",
+                                                       "Bergen, NJ", "Los Angeles, CA",
+                                                       "Rockland, NY", "Orleans, LA",
+                                                       "Orange, NY", "Miami-Dade, FL",
+                                                       "Essex, NJ")) +
+    ggtitle('Growth Curves for 15 Counties with Greatest COVID-15 Case-load')
+  fig <- ggplotly(p)
+```
+
+
+Sidebar2 {.sidebar}
+-----------------------------------------------------------------------
+
+```{r}
+
+filter_slider("Date", "Date", covid_share, column=~`Date`, step=1, timeFormat = "%F")
+
+
+filter_checkbox("State_Name", "State", covid_share, ~`State_Name`, inline = FALSE, columns = 4)
+
+```
+
+
+Row
+--------------------------------------------------------
+
+###
+```{r, fig.height=6, fig.width=10}
+centered_dot
+```
+
+
+Row {.tabset .tabset-fade}
+--------------------------------------------
+
+### Data Table
+```{r}
+
+covid_table <- datatable(covid_share, extensions="Scroller", style="bootstrap", class="compact", width="100%", options=list(deferRender=TRUE, scrollY=300, scroller=TRUE))
+
+covid_table
+```
+
+### Growth Trends
+```{r}
+fig
+```
+
+
+
+
+
+Data Source:  [NYTimes COVID Data](https://github.com/nytimes/covid-19-data)
