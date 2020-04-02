@@ -6,11 +6,3 @@ title: "Lynching Map with Interactive Data Filter"
 
 <iframe src="https://s3.amazonaws.com/davidrigbysociology/slave_lynchdot_map_02.html" width="800" height="800"></iframe>
 
-
----
-date: 2020-04-01
-title: "R COVID-19 Data Visualizations"
-# link: content/post/test/test_covid_slider.Rmd
----
-
-<iframe src="./<content/post/test/covid_dashboard.Rmd>" width="90%" height="1000px" style="border:none;"> </iframe>
