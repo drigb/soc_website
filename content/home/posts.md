@@ -7,14 +7,14 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 60  # Order that this section will appear.
 
-title = "TEST1, Code, Maps - content/home/posts.md"
+title = "Lessons, Code, Maps"
 subtitle = ""
-url = "content/post/test/covid_dashboard.Rmd"
+
 
 [content]
   # Page type to display. E.g. post, talk, or publication.
   page_type = "post"
-  
+  <iframe src="./<content/post/test/covid_dashboard.Rmd>" width="90%" height="1000px" style="border:none;"> </iframe>
   # Choose how much pages you would like to display (0 = all pages)
   count = 5
   
