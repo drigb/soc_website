@@ -7,9 +7,9 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 60  # Order that this section will appear.
 
-title = "Lessons, Code, Maps"
+title = "TEST, Code, Maps"
 subtitle = ""
-url = "content/post/test/test_covid_slider.Rmd"
+url = "content/post/test/covid_dashboard.Rmd"
 
 [content]
   # Page type to display. E.g. post, talk, or publication.
