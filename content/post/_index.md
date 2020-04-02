@@ -12,3 +12,5 @@ header:
   caption: ""
   image: ""
 ---
+
+<iframe src="./<content/post/test/covid_dashboard.Rmd>" width="90%" height="1000px" style="border:none;"> </iframe>
