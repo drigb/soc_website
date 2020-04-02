@@ -7,7 +7,7 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 60  # Order that this section will appear.
 
-title = "TEST, Code, Maps"
+title = "TEST1, Code, Maps - content/home/posts.md"
 subtitle = ""
 url = "content/post/test/covid_dashboard.Rmd"
 
