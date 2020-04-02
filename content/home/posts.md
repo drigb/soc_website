@@ -14,7 +14,6 @@ subtitle = ""
 [content]
   # Page type to display. E.g. post, talk, or publication.
   page_type = "post"
-  <iframe src="./<content/post/test/covid_dashboard.Rmd>" width="90%" height="1000px" style="border:none;"> </iframe>
   # Choose how much pages you would like to display (0 = all pages)
   count = 5
   
