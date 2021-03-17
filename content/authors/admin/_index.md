@@ -10,7 +10,7 @@ authors:
 superuser: true
 
 # Role/position
-role: Sociology PhD Candidate
+role: ROBOT PhD Candidate
 
 # Organizations/Affiliations
 organizations:
