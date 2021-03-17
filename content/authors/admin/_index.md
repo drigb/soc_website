@@ -10,7 +10,7 @@ authors:
 superuser: true
 
 # Role/position
-role: ROBOT PhD Candidate
+role: Sociology PhD Candidate
 
 # Organizations/Affiliations
 organizations:
@@ -62,7 +62,7 @@ social:
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.  
 - icon: cv
   icon_pack: ai
-  link: files/CV_David_Rigby_7_19.pdf
+  link: files/CV-David Rigby.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email: ""
