@@ -1,7 +1,6 @@
 ---
 date: 2021-03-17
 title: "Capital Punishment and the Legacies of Slavery and Lynching in the United States"
-authors: David Rigby and Charles Seguin
 external_link: "https://legaciesoflynching.netlify.app/"
 ---
 
