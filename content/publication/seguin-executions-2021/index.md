@@ -1,4 +1,8 @@
-+++
+---
+date: 2020-04-02
+title: "Capital Punishment and the Legacies of Slavery and Lynching in the United States"
+---
+
 title = "Capital Punishment and the Legacies of Slavery and Lynching in the United States"
 date = "Forthcoming"
 authors = ["David Rigby", "Charles Seguin"]
@@ -16,5 +20,4 @@ institutional legacy is central to contemporary capital punishment."
 featured = false
 publication = "*Annals of the American Academies of Political and Social Science*"
 doi = "*forthcoming*"
-+++
-
+---
