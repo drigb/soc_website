@@ -1,5 +1,5 @@
 ---
-title: Lessons, Code, Maps
+title: Publications
 
 # View.
 #   1 = List
