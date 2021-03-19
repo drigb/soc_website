@@ -33,7 +33,7 @@ education:
   courses:
   - course: PhD, Sociology
     institution: University of North Carolina at Chapel Hill
-    year: 2020
+    year: 2021
   - course: Master's, Sociology
     institution: University of North Carolina at Chapel Hill
     year: 2015
