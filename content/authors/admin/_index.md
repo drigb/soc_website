@@ -10,24 +10,28 @@ authors:
 superuser: true
 
 # Role/position
-role: Sociology PhD Candidate
+role: Lecturer of Sociology
 
 # Organizations/Affiliations
 organizations:
-- name: University of North Carolina at Chapel Hill
-  url: "https://sociology.unc.edu/"
+- name: Washington University in Saint Louis
+  url: "https://sociology.wustl.edu/"
 
 # Short bio (displayed in user profile at end of posts)
 bio: My research interests include distributed robotics, mobile computing and programmable matter.
 
 interests:
- - Political Sociology
+ - Racialization
+ - Historical Racial Social Control
+ - Population Health
  - Immigration
- - Race and Ethnicity
  - Computational Social Science
- - Social Movements
  - Collective Violence
- - Crime and Policing
+ - Policing
+ - Political Sociology
+ - Social Movements
+
+ 
 
 education:
   courses:
@@ -74,6 +78,6 @@ user_groups:
 - Visitors
 ---
 
-Welcome to my website! I am a doctoral candidate in the sociology department at UNC-Chapel Hill. My research interests include immigration, political sociology, collective action, race, and individual and institutional responses to social change. Here you can find information about my current research projects, teaching, and code for future projects. 
+Welcome to my website! I received my PhD from the sociology department at UNC-Chapel Hill and am currently a lecturer at Washington University in Saint Louis.. My research interests include racialization, immigration, politics, and population health. I am especially interested in how historical practices of racial social control provoke changes in local institutions that unfold across historical time into the development of contemporary place-based disparities. My ongoing projects connect historical violence to health disparities, for instance, by analyzing how historical practices of racial social control like sundown town practices restricting the mobility of Black people shaped local institutions in ways that entrenched structural racism, resulting in racially unequal exposure to the proximal determinants of health (e.g., air pollution and vulnerability to state violence). Here you can find information about my current research projects, teaching, and code for future projects. 
 
 This site is still under construction!
