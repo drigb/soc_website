@@ -1,0 +1,93 @@
+# SITE SETUP
+# Documentation: https://sourcethemes.com/academic/
+
+# Color theme.
+#   Choose from `default`, `ocean`, `forest`, `dark`, `apogee`, `1950s`, `coffee`, `cupcake`, `strawberry`.
+color_theme = "default"
+
+# Enable users to switch between day and night mode?
+day_night = true
+
+# Font style.
+#   Choose from `default`, `classic`, or `playfair`.
+font = "default"
+
+# Description for social sharing and search engines.
+description = ""
+
+# Default image for social sharing and search engines.
+sharing_image = ""
+
+# Twitter username (without @).
+twitter = ""
+
+# Display a logo in navigation bar rather than title (optional).
+logo = ""
+
+# Enable global source code highlighting?
+highlight = true
+
+# Enable global LaTeX math rendering?
+math = false
+
+# Privacy pack
+privacy_pack = false
+
+# Date and time format
+date_format = "Jan 2, 2006"
+time_format = "3:04 PM"
+
+############################
+## Contact Widget setup   ##
+############################
+
+email = "dlrpdx@gmail.com"
+phone = ""
+address = ""
+office_hours = ""
+appointment_url = ""
+
+contact_links = []
+
+# Display a map.
+map = 0
+map_api_key = ""
+latitude = ""
+longitude = ""
+zoom = 15
+
+############################
+## Plugins                ##
+############################
+
+plugins_css = []
+plugins_js  = []
+
+############################
+## Advanced options       ##
+############################
+
+gravatar = false
+menu_align_right = false
+reading_time = true
+comment_count = true
+section_pager = false
+docs_section_pager = true
+sharing = true
+
+[publications]
+  date_format = "January 2006"
+  citation_style = "apa"
+
+[projects]
+  post_view = 2
+  publication_view = 2
+  talk_view = 2
+
+[search]
+  engine = 1
+  [search.algolia]
+    app_id = ""
+    api_key = ""
+    index_name = ""
+    show_logo = false
