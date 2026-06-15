@@ -10,26 +10,23 @@ authors:
 superuser: true
 
 # Role/position
-role: Lecturer of Sociology
+role: Assistant Research Scientist
 
 # Organizations/Affiliations
 organizations:
-- name: Washington University in Saint Louis
-  url: "https://sociology.wustl.edu/"
+- name: University of Michigan Institute for Social Research
+  url: "https://isr.umich.edu/"
 
 # Short bio (displayed in user profile at end of posts)
 bio: My research interests include distributed robotics, mobile computing and programmable matter.
 
 interests:
- - Racialization
- - Historical Racial Social Control
  - Population Health
- - Immigration
+ - Race and Racialization
  - Computational Social Science
  - Collective Violence
  - Policing
- - Political Sociology
- - Social Movements
+ - Immigration
 
  
 
@@ -53,9 +50,9 @@ social:
 - icon: envelope
   icon_pack: fas
   link: '#contact'  # For a direct email link, use "mailto:test@example.org".
-- icon: twitter
+- icon: bsky
   icon_pack: fab
-  link: https://twitter.com/rigby_david
+  link: https://bsky.app/notifications
 - icon: google-scholar
   icon_pack: ai
   link: https://scholar.google.com/citations?user=p93ikBsAAAAJ&hl
@@ -78,6 +75,4 @@ user_groups:
 - Visitors
 ---
 
-Welcome to my website! I received my PhD from the sociology department at UNC-Chapel Hill and am currently a lecturer at Washington University in Saint Louis. My research interests include racialization, immigration, politics, and population health. I am especially interested in how historical practices of racial social control provoke changes in local institutions that unfold across historical time into the development of contemporary place-based disparities. My ongoing projects connect historical violence to health disparities, for instance, by analyzing how historical practices of racial social control like sundown town practices restricting the mobility of Black people shaped local institutions in ways that entrenched structural racism, resulting in racially unequal exposure to the proximal determinants of health (e.g., air pollution and vulnerability to state violence). Here you can find information about my current research projects, teaching, and code for future projects. 
-
-This site is still under construction!
+Welcome to my website! Before joining the faculty at the Landscapes of Population Health program at the University of Michigan's Institute for Social Research (2024-present), I was a Postdoctoral Fellow at Duke University (2023-2024) and a Lecturer at Washington University in St. Louis (2021-2023). I earned my PhD in Sociology at UNC-Chapel Hill. My research interests include population health, immigration, race and racialization, and political change. I am especially interested in how historical practices of social control provoke changes in local institutions that unfold across historical time into the development of contemporary place-based disparities. My ongoing projects connect historical violence to health disparities, for instance, by analyzing how historical practices of social control like sundown town practices restricting the mobility of Black people shaped local institutions in ways that entrenched unequal access to health resources, resulting in racially unequal exposure to the proximal determinants of health (e.g., air pollution and vulnerability to state violence). Here you can find information about my current research projects, teaching, and code for future projects. 
