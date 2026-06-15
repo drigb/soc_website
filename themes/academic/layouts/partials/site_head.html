@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic {{ site.Data.academic.version }}">
 
-  {{ $scr := .Scratch }}
+  {{ $scr := .Store }}
 
   {{/* Attempt to load superuser. */}}
   {{ $superuser_name := "" }}
@@ -116,11 +116,11 @@
     <link rel="stylesheet" href="{{ $css_bundle.RelPermalink }}">
   {{ end }}
 
-  {{ if not site.IsServer }}
-  {{ if site.GoogleAnalytics }}
+  {{ $ga_id := site.Config.Services.GoogleAnalytics.ID }}
+  {{ if and (not hugo.IsServer) $ga_id }}
     <script>
       window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-      ga('create', '{{ site.GoogleAnalytics }}', 'auto');
+      ga('create', '{{ $ga_id }}', 'auto');
       {{ if site.Params.privacy_pack }}ga('set', 'anonymizeIp', true);{{ end }}
       ga('require', 'eventTracker');
       ga('require', 'outboundLinkTracker');
@@ -131,7 +131,6 @@
     {{ if ($scr.Get "use_cdn") }}
     {{ printf "<script async src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" (printf $js.autotrack.url $js.autotrack.version) $js.autotrack.sri | safeHTML }}
     {{ end }}
-  {{ end }}
   {{ end }}
 
   {{ with .OutputFormats.Get "RSS" }}
